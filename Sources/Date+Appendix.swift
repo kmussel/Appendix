@@ -51,6 +51,13 @@ public struct DateComponents {
     static var All:NSCalendarUnit               = ([Minute, Hour, Day, Weekday, WeekdayOrdinal, Month, Year])
 }
 
+public extension NSDateFormatter {
+    convenience init(format:String) {
+        self.init()
+        self.dateFormat = format
+    }
+}
+
 public extension NSDate {
     public var components: NSDateComponents {
         return NSCalendar.currentCalendar().components((DateComponents.All), fromDate: self)

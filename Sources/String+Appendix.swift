@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Appendix
 
 public func formatString(string:String, pattern:String, maskCharacter character:String = "#", placeholder:String = "") -> String {
     
@@ -76,6 +77,11 @@ public extension String {
         
         
         return self[indexFirst..<indexLast]
+    }
+    
+    public init(date:NSDate, format:String) {
+        let formatter   = NSDateFormatter(format: format)
+        self            = formatter.stringFromDate(date)
     }
 
     public func sizeConstraintedToWidth(width:CGFloat, font:UIFont) -> CGSize {
